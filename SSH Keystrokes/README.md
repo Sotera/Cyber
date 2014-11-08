@@ -12,9 +12,6 @@ Snort was used to capture the keystroke events. Details of the installation and 
 This produces the following alerts (/var/log/snort/alert):<p>
 ```
       11/07-13:27:48.929174  [**] [1:1:1] keystroke [**] [Priority: 0] {TCP} 192.168.1.23:19490 -> 192.168.0.10:22
-```
-<p>
-```
       11/07-13:27:49.173180  [**] [1:1:1] keystroke [**] [Priority: 0] {TCP} 192.168.1.23:19490 -> 192.168.0.10:22
 ```
 
