@@ -32,9 +32,10 @@ Validating the packets are indeed those of keystrokes a method for recording the
     cat keystroke_ssh_truth_20141107_132525.123456789.log | grep " = 1$" > keystrokes_strace.log
 ```
 <p> This produces output such as the following:
->1415399448.844153 read(4, "e", 16384)   = 1
->1415399449.346695 read(4, "x", 16384)   = 1
->1415399449.511329 read(4, "i", 16384)   = 1
->1415399449.638320 read(4, "t", 16384)   = 1
->1415399449.863464 read(4, "\r", 16384)  = 1
-
+```
+    1415399448.844153 read(4, "e", 16384)   = 1
+    1415399449.346695 read(4, "x", 16384)   = 1
+    1415399449.511329 read(4, "i", 16384)   = 1
+    1415399449.638320 read(4, "t", 16384)   = 1
+    1415399449.863464 read(4, "\r", 16384)  = 1
+```
