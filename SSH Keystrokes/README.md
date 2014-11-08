@@ -41,3 +41,6 @@ Validating the packets are indeed those of keystrokes a method for recording the
     1415399449.638320 read(4, "t", 16384)   = 1
     1415399449.863464 read(4, "\r", 16384)  = 1
 ```
+
+### Typing metrics
+Control samples of typing for statistical analysis can be obtained using the Tkinter/python application. A user types in the dialog and each keystroke is recorded along with its timestamp. This file is then parsed to compute the delta between keystrokes and aggregate the digraphs. A diagraph is considered if the pause between keystrokes is less than 0.5 seconds. This threshold needs to be adjusted for users that are very slow "hunt-and-peck" keypad entry or thumb texting.
