@@ -52,3 +52,11 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# IntelliJ
+.idea
+*.iml
+
+animated-octo-nemesis.iml
+.idea
+SSH Keystrokes/keystroke_logging/typing_metrics/results
