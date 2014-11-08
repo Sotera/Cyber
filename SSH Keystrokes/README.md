@@ -5,9 +5,11 @@ This project records the keystroke events from a SSH terminal session.
 
 ## Keystroke SSH Packet Recording
 Snort was used to capture the keystroke events. Details of the installation and setup can be found in the snort directory.
-
-- Rule Header:     alert tcp any any -> 192.168.0.10/32 22
-- Rule Options:    (msg: "keystroke"; fragbits: D; flags: AP; dsize: 32<>192; gid:x; sid:x; rev:x)
+<p> Snort Rule:
+```
+    alert tcp any any -> 192.168.0.10/32 22 \
+      (msg: "keystroke"; fragbits: D; flags: AP; dsize: 32<>192; gid:x; sid:x; rev:x)
+```
 
 This produces the following alerts (/var/log/snort/alert):<p>
 ```
