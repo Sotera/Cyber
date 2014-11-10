@@ -58,5 +58,7 @@ target/
 *.iml
 
 animated-octo-nemesis.iml
-.idea
+*.idea
 SSH Keystrokes/keystroke_logging/typing_metrics/results
+SSH Keystrokes/parse_logs/parsed_logins.csv
+SSH Keystrokes/parse_logs/parsed_alert.csv
