@@ -3,7 +3,7 @@
 # parse_lastlogin.py
 # Syntax: parse_lastlogins.py <login file> <output file>
 #     login file obtained via the "last" command in linux.
-#     $> last -a -d -F -w > login_file.txt
+#     $> last -a -d -F -w -i > login_file.txt
 __author__ = 'rburactaon'
 import sys
 import datetime

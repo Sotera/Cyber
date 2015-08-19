@@ -1,9 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# parse_alerts.py
-# Syntax: parse_alerts.py <alerts file> <output file>
-#     Parses the snort log "alerts" and creates a CSV file for ETL
-#
+# parse_wireshark.py
+# Syntax: parse_wireshark.py <wireshark file> <output file>
+#     Parses the filtered snort logs using wireshark
+#(tcp.len == 48 or tcp.len==52) && !(_ws.expert) && (ssh)
 __author__ = 'rburactaon'
 import sys
 import datetime
@@ -12,7 +12,7 @@ import time
 
 # Check command line arguments
 if len(sys.argv) != 3:
-    print "Syntax:\tparse_alerts <alerts file> <output file>"
+    print "Syntax:\tparse_wireshark <wireshark file> <output file>"
     sys.exit(2)
 else:
     alerts = sys.argv[1]

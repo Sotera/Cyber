@@ -9,6 +9,7 @@ __author__ = 'rburactaon'
 from Tkinter import *
 from time import time
 import sys
+import datetime
 
 # Set User Name
 if len(sys.argv) != 2:
@@ -21,6 +22,8 @@ filename = "results/keytiming_" + username + "_" + str(int(time())) + ".csv"
 f = open(filename, "w")
 f.write("username\ttimestamp\tmodifiers\tkey_symbol\tkey_char\tdelta_t\n")
 
+MAX_WPM = 0
+prev_time = None
 #start_time = end_time = 0
 master = Tk()
 e = Text(master)
@@ -29,6 +32,8 @@ e.focus_set()
 
 
 def key(event):
+    global MAX_WPM
+    global prev_time
     modifiers = []
     del modifiers[:]
 
@@ -59,20 +64,28 @@ def key(event):
     #     return
     #print "pressed", repr(event.char)
 
-    end_time = time()
-    delta_t = end_time - start_time
-
+    end_time = datetime.datetime.now()
+    delta_t = end_time.microsecond - start_time.microsecond
     # Write to File
     # Columns:  username  timestamp   modifiers   key_symbol  key_char delta_t
     f.write(username + '\t' + str(end_time) + '\t' + '-'.join(modifiers[:-1]) + '\t' +
             repr(event.keysym) + '\t' + repr(event.char) + '\t' + str(delta_t) + '\n')
     # FOR DEBUG
-    #print username + '\t' + str(end_time) + '\t' + '-'.join(modifiers[:-1]) + '\t' + repr(event.keysym) + '\t' + repr(event.char) + '\t' + str(delta_t) + '\n'
+    if prev_time is None:
+        prev_time = start_time
+    key_interval = (end_time - prev_time).microseconds / 1e6
+    wpm = (1 / key_interval) * 5
+    if wpm > MAX_WPM:
+        MAX_WPM = wpm
+    prev_time = end_time
+    print username + '\t' + str(end_time) + '\t' + '-'.join(modifiers[:-1]) + '\t' + \
+          repr(event.keysym) + '\t' + repr(event.char) + '\t' + str(key_interval) + '\twpm: ' +\
+          str(wpm) + '\tWPM_max: ' + str(MAX_WPM)
 
     modifiers[:] = []
     del modifiers[:]
-
 # Main Loop
+wpm_max = 0
 e.bind("<Key>", key)
-start_time = time()
+start_time = datetime.datetime.now()
 mainloop()
