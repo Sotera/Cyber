@@ -1,2 +1,0 @@
-alert tcp any any -> 172.21.10.110/32 22 (msg: "keystroke"; fragbits: D; flags: AP; dsize: 32<>192; gid:1; sid:1; rev:1;)
-
