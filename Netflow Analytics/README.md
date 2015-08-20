@@ -1,4 +1,5 @@
 # Netflow Analytics
+![Kibana Dashboard: Cyber Situational Awareness](./Dashboard.png)
 ## Data Pipelines
 There are two folders one for [traditional Hadoop based ETL (MapReduce, Spark, etc.)](./Hadoop) and one for using [Elasticsearch for the streaming ingest](./Elasticsearch). Currently I have constructed a streaming ingest of Netflow with Elasticsearch. Long term store in HDFS is accomplished through the Elasticserach Hadoop connector.
 
